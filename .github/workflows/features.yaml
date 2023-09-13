@@ -1,0 +1,22 @@
+name: Pipeline for feature branch
+on:
+  push:
+    branches: [ "feature/*"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.3
+      - name: Setup Java 17 JDK
+        uses: actions/setup-java@v1.4.4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Maven Build Action
+        run: mvn --batch-mode --update-snapshots verify
