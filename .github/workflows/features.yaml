@@ -1,4 +1,4 @@
-name: Pipeline for Main branch
+name: Pipeline for feature branch
 on:
   push:
     branches: [ "feature/*"]
