@@ -34,16 +34,16 @@ public class CarParkRepositoryTest {
         CarParkEntities carParkEntityOne = new CarParkEntities();
         carParkEntityOne.setCarParkNum("1000");
         carParkEntityOne.setAddress("Home Address One");
-        carParkEntityOne.setXCoordinate(1.0);
-        carParkEntityOne.setYCoordinate(1.0);
+        carParkEntityOne.setLongitude(1.0);
+        carParkEntityOne.setLatitude(1.0);
         carParkEntityOne.setAvailableLots(10);
         carParkEntityOne.setTotalLots(15);
 
         CarParkEntities carParkEntityTwo = new CarParkEntities();
         carParkEntityTwo.setCarParkNum("1001");
         carParkEntityTwo.setAddress("Home Address Two");
-        carParkEntityTwo.setXCoordinate(1.0);
-        carParkEntityTwo.setYCoordinate(1.0);
+        carParkEntityTwo.setLongitude(1.0);
+        carParkEntityTwo.setLatitude(1.0);
         carParkEntityTwo.setAvailableLots(10);
         carParkEntityTwo.setTotalLots(15);
 
@@ -61,16 +61,16 @@ public class CarParkRepositoryTest {
         CarParkEntities carParkEntityOne = new CarParkEntities();
         carParkEntityOne.setCarParkNum("1000");
         carParkEntityOne.setAddress("Home Address One");
-        carParkEntityOne.setXCoordinate(1.0);
-        carParkEntityOne.setYCoordinate(1.0);
+        carParkEntityOne.setLongitude(1.0);
+        carParkEntityOne.setLatitude(1.0);
         carParkEntityOne.setAvailableLots(10);
         carParkEntityOne.setTotalLots(15);
 
         CarParkEntities carParkEntityTwo = new CarParkEntities();
         carParkEntityTwo.setCarParkNum("1000");
         carParkEntityTwo.setAddress("Home Address Two");
-        carParkEntityTwo.setXCoordinate(1.0);
-        carParkEntityTwo.setYCoordinate(1.0);
+        carParkEntityTwo.setLongitude(1.0);
+        carParkEntityTwo.setLatitude(1.0);
         carParkEntityTwo.setAvailableLots(10);
         carParkEntityTwo.setTotalLots(15);
 
@@ -86,8 +86,8 @@ public class CarParkRepositoryTest {
         CarParkEntities carParkEntityOne = new CarParkEntities();
         carParkEntityOne.setCarParkNum("1000");
         carParkEntityOne.setAddress(null);
-        carParkEntityOne.setXCoordinate(1.0);
-        carParkEntityOne.setYCoordinate(1.0);
+        carParkEntityOne.setLongitude(1.0);
+        carParkEntityOne.setLatitude(1.0);
         carParkEntityOne.setAvailableLots(10);
         carParkEntityOne.setTotalLots(15);
 
@@ -102,16 +102,16 @@ public class CarParkRepositoryTest {
         CarParkEntities carParkEntityOne = new CarParkEntities();
         carParkEntityOne.setCarParkNum("1000");
         carParkEntityOne.setAddress("Home Address One");
-        carParkEntityOne.setXCoordinate(1.0);
-        carParkEntityOne.setYCoordinate(1.0);
+        carParkEntityOne.setLongitude(1.0);
+        carParkEntityOne.setLatitude(1.0);
         carParkEntityOne.setAvailableLots(10);
         carParkEntityOne.setTotalLots(15);
 
         CarParkEntities carParkEntityTwo = new CarParkEntities();
         carParkEntityTwo.setCarParkNum("1001");
         carParkEntityTwo.setAddress("Home Address Two");
-        carParkEntityTwo.setXCoordinate(1.0);
-        carParkEntityTwo.setYCoordinate(1.0);
+        carParkEntityTwo.setLongitude(1.0);
+        carParkEntityTwo.setLatitude(1.0);
         carParkEntityTwo.setAvailableLots(10);
         carParkEntityTwo.setTotalLots(15);
 

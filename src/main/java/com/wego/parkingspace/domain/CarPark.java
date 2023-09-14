@@ -66,4 +66,9 @@ public class CarPark {
     public void setAvailableLots(Integer availableLots) {
         this.availableLots = availableLots;
     }
+
+    @Override
+    public String toString() {
+        return "Car Park Number: " + carParkNumber + ", latitude: " + latitude + ", longitude: " + longitude;
+    }
 }
