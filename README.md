@@ -23,3 +23,27 @@ We present this architecture through the following folder structure:
 - adapter : The implementation of the contracts defined by Ports.
   - in : The implementation of the contracts that drive the application.
   - out : The implementation of the contracts that fetch resources from external sources.
+
+### How To Run The Application
+1. Make sure you installed docker and it is running
+2. Clone the repository.
+```
+git clone https://github.com/bagabobs/parkingspace.git
+```
+3. Go to the repository folder
+```
+cd parkingspace
+```
+4. Build the project
+```
+./mvnw install
+```
+5. Then run the application using docker compose
+```
+docker compose -f docker-compose.yml up
+```
+6. Wait for the application to populate the data
+7. You can hit the API using
+```
+curl -i "http://www.localhost:8080/get_car_parks?latitude=1.3411134805883342&longitude=103.98265048254667&page=1&size=1"
+```
