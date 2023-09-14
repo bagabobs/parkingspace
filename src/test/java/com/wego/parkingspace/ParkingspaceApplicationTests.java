@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -32,6 +31,8 @@ class ParkingspaceApplicationTests {
 						.param("page", "1"))
 				.andDo(MockMvcResultHandlers.print())
 				.andExpect(status().isOk())
-                .andExpect(jsonPath("$[*].carParkNumber", Matchers.contains("SI11")));
+                .andExpect(jsonPath("$[*].address", Matchers.contains("BLK 155/162 SIMEI ROAD")))
+				.andExpect(jsonPath("$[*].total_lots", Matchers.anything()))
+				.andExpect(jsonPath("$[*].available_lots", Matchers.anything()));
 	}
 }

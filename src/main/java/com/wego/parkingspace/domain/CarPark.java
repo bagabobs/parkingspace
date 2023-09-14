@@ -1,11 +1,17 @@
 package com.wego.parkingspace.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CarPark {
+    @JsonIgnore
     private String carParkNumber;
     private String address;
     private Double latitude;
     private Double longitude;
+    @JsonProperty("total_lots")
     private Integer totalLots;
+    @JsonProperty("available_lots")
     private Integer availableLots;
 
     public CarPark() {}
