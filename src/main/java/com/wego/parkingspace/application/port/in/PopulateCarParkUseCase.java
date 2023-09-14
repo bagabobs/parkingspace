@@ -4,4 +4,5 @@ import com.wego.parkingspace.exceptions.PopulateException;
 
 public interface PopulateCarParkUseCase {
     int populate() throws PopulateException;
+    int updateAvaibility() throws PopulateException;
 }

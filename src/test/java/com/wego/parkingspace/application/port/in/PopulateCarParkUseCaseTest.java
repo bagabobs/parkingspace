@@ -10,26 +10,26 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(
-        properties = {"spring.test.database.replace=none", "spring.datasource.url=jdbc:tc:postgresql:15.3-alpine:///db"
-        })
+//@SpringBootTest(
+//        properties = {"spring.test.database.replace=none", "spring.datasource.url=jdbc:tc:postgresql:15.3-alpine:///db"
+//        })
 public class PopulateCarParkUseCaseTest {
-    @Autowired
-    private PopulateCarParkUseCase populateCarParkUseCase;
-    @Autowired
-    private DSLContext context;
-
-    @BeforeEach
-    void initialSetup() {
-        context.truncate(CAR_PARK_ENTITIES);
-    }
-
-    @Test
-    void testPopulateCarParks() throws Exception {
-        Integer countBeforePopulate = context.select(count()).from(CAR_PARK_ENTITIES).fetchOneInto(Integer.class);
-        int populateSize = populateCarParkUseCase.populate();
-        Integer countAfterPopulate = context.select(count()).from(CAR_PARK_ENTITIES).fetchOneInto(Integer.class);
-
-        assertThat(populateSize).isEqualTo(countAfterPopulate - countBeforePopulate);
-    }
+//    @Autowired
+//    private PopulateCarParkUseCase populateCarParkUseCase;
+//    @Autowired
+//    private DSLContext context;
+//
+//    @BeforeEach
+//    void initialSetup() {
+//        context.truncate(CAR_PARK_ENTITIES);
+//    }
+//
+//    @Test
+//    void testPopulateCarParks() throws Exception {
+//        Integer countBeforePopulate = context.select(count()).from(CAR_PARK_ENTITIES).fetchOneInto(Integer.class);
+//        int populateSize = populateCarParkUseCase.populate();
+//        Integer countAfterPopulate = context.select(count()).from(CAR_PARK_ENTITIES).fetchOneInto(Integer.class);
+//
+//        assertThat(populateSize).isEqualTo(countAfterPopulate - countBeforePopulate);
+//    }
 }

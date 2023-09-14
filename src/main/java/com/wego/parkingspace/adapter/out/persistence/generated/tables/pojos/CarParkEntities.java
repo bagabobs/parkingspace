@@ -17,8 +17,8 @@ public class CarParkEntities implements Serializable {
 
     private String carParkNum;
     private String address;
-    private Double xCoordinate;
-    private Double yCoordinate;
+    private Double latitude;
+    private Double longitude;
     private Integer totalLots;
     private Integer availableLots;
 
@@ -27,8 +27,8 @@ public class CarParkEntities implements Serializable {
     public CarParkEntities(CarParkEntities value) {
         this.carParkNum = value.carParkNum;
         this.address = value.address;
-        this.xCoordinate = value.xCoordinate;
-        this.yCoordinate = value.yCoordinate;
+        this.latitude = value.latitude;
+        this.longitude = value.longitude;
         this.totalLots = value.totalLots;
         this.availableLots = value.availableLots;
     }
@@ -36,15 +36,15 @@ public class CarParkEntities implements Serializable {
     public CarParkEntities(
         String carParkNum,
         String address,
-        Double xCoordinate,
-        Double yCoordinate,
+        Double latitude,
+        Double longitude,
         Integer totalLots,
         Integer availableLots
     ) {
         this.carParkNum = carParkNum;
         this.address = address;
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.totalLots = totalLots;
         this.availableLots = availableLots;
     }
@@ -78,31 +78,31 @@ public class CarParkEntities implements Serializable {
     }
 
     /**
-     * Getter for <code>public.car_park_entities.x_coordinate</code>.
+     * Getter for <code>public.car_park_entities.latitude</code>.
      */
-    public Double getXCoordinate() {
-        return this.xCoordinate;
+    public Double getLatitude() {
+        return this.latitude;
     }
 
     /**
-     * Setter for <code>public.car_park_entities.x_coordinate</code>.
+     * Setter for <code>public.car_park_entities.latitude</code>.
      */
-    public void setXCoordinate(Double xCoordinate) {
-        this.xCoordinate = xCoordinate;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
     /**
-     * Getter for <code>public.car_park_entities.y_coordinate</code>.
+     * Getter for <code>public.car_park_entities.longitude</code>.
      */
-    public Double getYCoordinate() {
-        return this.yCoordinate;
+    public Double getLongitude() {
+        return this.longitude;
     }
 
     /**
-     * Setter for <code>public.car_park_entities.y_coordinate</code>.
+     * Setter for <code>public.car_park_entities.longitude</code>.
      */
-    public void setYCoordinate(Double yCoordinate) {
-        this.yCoordinate = yCoordinate;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     /**
@@ -154,17 +154,17 @@ public class CarParkEntities implements Serializable {
         }
         else if (!this.address.equals(other.address))
             return false;
-        if (this.xCoordinate == null) {
-            if (other.xCoordinate != null)
+        if (this.latitude == null) {
+            if (other.latitude != null)
                 return false;
         }
-        else if (!this.xCoordinate.equals(other.xCoordinate))
+        else if (!this.latitude.equals(other.latitude))
             return false;
-        if (this.yCoordinate == null) {
-            if (other.yCoordinate != null)
+        if (this.longitude == null) {
+            if (other.longitude != null)
                 return false;
         }
-        else if (!this.yCoordinate.equals(other.yCoordinate))
+        else if (!this.longitude.equals(other.longitude))
             return false;
         if (this.totalLots == null) {
             if (other.totalLots != null)
@@ -187,8 +187,8 @@ public class CarParkEntities implements Serializable {
         int result = 1;
         result = prime * result + ((this.carParkNum == null) ? 0 : this.carParkNum.hashCode());
         result = prime * result + ((this.address == null) ? 0 : this.address.hashCode());
-        result = prime * result + ((this.xCoordinate == null) ? 0 : this.xCoordinate.hashCode());
-        result = prime * result + ((this.yCoordinate == null) ? 0 : this.yCoordinate.hashCode());
+        result = prime * result + ((this.latitude == null) ? 0 : this.latitude.hashCode());
+        result = prime * result + ((this.longitude == null) ? 0 : this.longitude.hashCode());
         result = prime * result + ((this.totalLots == null) ? 0 : this.totalLots.hashCode());
         result = prime * result + ((this.availableLots == null) ? 0 : this.availableLots.hashCode());
         return result;
@@ -200,8 +200,8 @@ public class CarParkEntities implements Serializable {
 
         sb.append(carParkNum);
         sb.append(", ").append(address);
-        sb.append(", ").append(xCoordinate);
-        sb.append(", ").append(yCoordinate);
+        sb.append(", ").append(latitude);
+        sb.append(", ").append(longitude);
         sb.append(", ").append(totalLots);
         sb.append(", ").append(availableLots);
 

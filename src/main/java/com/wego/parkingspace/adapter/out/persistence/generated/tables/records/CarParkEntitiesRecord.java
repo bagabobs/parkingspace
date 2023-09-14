@@ -50,30 +50,30 @@ public class CarParkEntitiesRecord extends UpdatableRecordImpl<CarParkEntitiesRe
     }
 
     /**
-     * Setter for <code>public.car_park_entities.x_coordinate</code>.
+     * Setter for <code>public.car_park_entities.latitude</code>.
      */
-    public void setXCoordinate(Double value) {
+    public void setLatitude(Double value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>public.car_park_entities.x_coordinate</code>.
+     * Getter for <code>public.car_park_entities.latitude</code>.
      */
-    public Double getXCoordinate() {
+    public Double getLatitude() {
         return (Double) get(2);
     }
 
     /**
-     * Setter for <code>public.car_park_entities.y_coordinate</code>.
+     * Setter for <code>public.car_park_entities.longitude</code>.
      */
-    public void setYCoordinate(Double value) {
+    public void setLongitude(Double value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>public.car_park_entities.y_coordinate</code>.
+     * Getter for <code>public.car_park_entities.longitude</code>.
      */
-    public Double getYCoordinate() {
+    public Double getLongitude() {
         return (Double) get(3);
     }
 
@@ -140,12 +140,12 @@ public class CarParkEntitiesRecord extends UpdatableRecordImpl<CarParkEntitiesRe
 
     @Override
     public Field<Double> field3() {
-        return CarParkEntities.CAR_PARK_ENTITIES.X_COORDINATE;
+        return CarParkEntities.CAR_PARK_ENTITIES.LATITUDE;
     }
 
     @Override
     public Field<Double> field4() {
-        return CarParkEntities.CAR_PARK_ENTITIES.Y_COORDINATE;
+        return CarParkEntities.CAR_PARK_ENTITIES.LONGITUDE;
     }
 
     @Override
@@ -170,12 +170,12 @@ public class CarParkEntitiesRecord extends UpdatableRecordImpl<CarParkEntitiesRe
 
     @Override
     public Double component3() {
-        return getXCoordinate();
+        return getLatitude();
     }
 
     @Override
     public Double component4() {
-        return getYCoordinate();
+        return getLongitude();
     }
 
     @Override
@@ -200,12 +200,12 @@ public class CarParkEntitiesRecord extends UpdatableRecordImpl<CarParkEntitiesRe
 
     @Override
     public Double value3() {
-        return getXCoordinate();
+        return getLatitude();
     }
 
     @Override
     public Double value4() {
-        return getYCoordinate();
+        return getLongitude();
     }
 
     @Override
@@ -232,13 +232,13 @@ public class CarParkEntitiesRecord extends UpdatableRecordImpl<CarParkEntitiesRe
 
     @Override
     public CarParkEntitiesRecord value3(Double value) {
-        setXCoordinate(value);
+        setLatitude(value);
         return this;
     }
 
     @Override
     public CarParkEntitiesRecord value4(Double value) {
-        setYCoordinate(value);
+        setLongitude(value);
         return this;
     }
 
@@ -279,13 +279,13 @@ public class CarParkEntitiesRecord extends UpdatableRecordImpl<CarParkEntitiesRe
     /**
      * Create a detached, initialised CarParkEntitiesRecord
      */
-    public CarParkEntitiesRecord(String carParkNum, String address, Double xCoordinate, Double yCoordinate, Integer totalLots, Integer availableLots) {
+    public CarParkEntitiesRecord(String carParkNum, String address, Double latitude, Double longitude, Integer totalLots, Integer availableLots) {
         super(CarParkEntities.CAR_PARK_ENTITIES);
 
         setCarParkNum(carParkNum);
         setAddress(address);
-        setXCoordinate(xCoordinate);
-        setYCoordinate(yCoordinate);
+        setLatitude(latitude);
+        setLongitude(longitude);
         setTotalLots(totalLots);
         setAvailableLots(availableLots);
         resetChangedOnNotNull();
@@ -300,8 +300,8 @@ public class CarParkEntitiesRecord extends UpdatableRecordImpl<CarParkEntitiesRe
         if (value != null) {
             setCarParkNum(value.getCarParkNum());
             setAddress(value.getAddress());
-            setXCoordinate(value.getXCoordinate());
-            setYCoordinate(value.getYCoordinate());
+            setLatitude(value.getLatitude());
+            setLongitude(value.getLongitude());
             setTotalLots(value.getTotalLots());
             setAvailableLots(value.getAvailableLots());
             resetChangedOnNotNull();

@@ -60,14 +60,14 @@ public class CarParkEntities extends TableImpl<CarParkEntitiesRecord> {
     public final TableField<CarParkEntitiesRecord, String> ADDRESS = createField(DSL.name("address"), SQLDataType.VARCHAR.nullable(false), this, "");
 
     /**
-     * The column <code>public.car_park_entities.x_coordinate</code>.
+     * The column <code>public.car_park_entities.latitude</code>.
      */
-    public final TableField<CarParkEntitiesRecord, Double> X_COORDINATE = createField(DSL.name("x_coordinate"), SQLDataType.DOUBLE.nullable(false), this, "");
+    public final TableField<CarParkEntitiesRecord, Double> LATITUDE = createField(DSL.name("latitude"), SQLDataType.DOUBLE.nullable(false), this, "");
 
     /**
-     * The column <code>public.car_park_entities.y_coordinate</code>.
+     * The column <code>public.car_park_entities.longitude</code>.
      */
-    public final TableField<CarParkEntitiesRecord, Double> Y_COORDINATE = createField(DSL.name("y_coordinate"), SQLDataType.DOUBLE.nullable(false), this, "");
+    public final TableField<CarParkEntitiesRecord, Double> LONGITUDE = createField(DSL.name("longitude"), SQLDataType.DOUBLE.nullable(false), this, "");
 
     /**
      * The column <code>public.car_park_entities.total_lots</code>.
