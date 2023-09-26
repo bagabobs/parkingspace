@@ -2,6 +2,7 @@ package com.wego.parkingspace.application.service;
 
 import com.wego.parkingspace.application.port.in.PopulateCarParkUseCase;
 import com.wego.parkingspace.application.port.out.CarParkApiPort;
+import com.wego.parkingspace.application.port.out.LoadCarParkPort;
 import com.wego.parkingspace.application.port.out.SaveCarParkPort;
 import com.wego.parkingspace.application.service.model.CarparkData;
 import com.wego.parkingspace.application.service.model.CarparkDataRoot;
@@ -30,30 +31,35 @@ public class PopulateCarParkService implements PopulateCarParkUseCase {
     private final SaveCarParkPort saveCarParkPort;
     private final CarParkApiPort carParkApiPort;
     private final LatLongConversionService latLongConversionService;
+    private final LoadCarParkPort loadCarParkPort;
     private Map<String, CarPark> carParkMap;
 
     public PopulateCarParkService(SaveCarParkPort saveCarParkPort, CarParkApiPort carParkApiPort,
-                                  LatLongConversionService latLongConversionService) {
+                                  LatLongConversionService latLongConversionService, LoadCarParkPort loadCarParkPort) {
         this.saveCarParkPort = saveCarParkPort;
         this.carParkApiPort = carParkApiPort;
         this.latLongConversionService = latLongConversionService;
+        this.loadCarParkPort = loadCarParkPort;
     }
 
     @Override
     public int populate() throws PopulateException {
         try {
-            System.out.println("Populate started");
-            long startTime = System.currentTimeMillis();
-            List<CarPark> carParks = fetchCarParkFromCsv();
-            List<CarPark> resultConvertList = latLongConversionService.converToLatLong(carParks);
-            carParkMap = new HashMap<>();
-            resultConvertList.forEach(carPark -> {
-                carParkMap.put(carPark.getCarParkNumber(), carPark);
-            });
-            fetchCurrentAvailableSpace();
-            int result = saveCarParkPort.saveInBatch(carParkMap.values().stream().toList());
-            System.out.println("Time to finish: " + (System.currentTimeMillis() - startTime));
-            return result;
+            int carParkSize = loadCarParkPort.loadCarParksSize();
+            if (carParkSize == 0) {
+                System.out.println("Populate started");
+                long startTime = System.currentTimeMillis();
+                List<CarPark> carParks = fetchCarParkFromCsv();
+                List<CarPark> resultConvertList = latLongConversionService.converToLatLong(carParks);
+                carParkMap = new HashMap<>();
+                resultConvertList.forEach(carPark -> carParkMap.put(carPark.getCarParkNumber(), carPark));
+                fetchCurrentAvailableSpace();
+                int result = saveCarParkPort.saveInBatch(carParkMap.values().stream().toList());
+                System.out.println("Time to finish: " + (System.currentTimeMillis() - startTime));
+                return result;
+            } else {
+                return updateAvaibility();
+            }
         } catch(PersistenceAdapterException tokenGeneratorException) {
             throw new PopulateException(tokenGeneratorException.getMessage(), tokenGeneratorException);
         }

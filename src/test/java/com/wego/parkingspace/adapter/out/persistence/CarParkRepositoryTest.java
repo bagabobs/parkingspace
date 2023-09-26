@@ -127,4 +127,10 @@ public class CarParkRepositoryTest {
         CarParkEntities carParkEntities = context.selectFrom(CAR_PARK_ENTITIES).where(CAR_PARK_ENTITIES.CAR_PARK_NUM.eq(carParkEntityOne.getCarParkNum())).fetchOneInto(CarParkEntities.class);
         assertThat(carParkEntities.getTotalLots()).isEqualTo(carParkEntityOne.getTotalLots());
     }
+
+    @Test
+    void checkTableData() throws RepositoryImplementationException {
+        int result = carParkRepository.getCarParksSize();
+        assertThat(result).isPositive();
+    }
 }

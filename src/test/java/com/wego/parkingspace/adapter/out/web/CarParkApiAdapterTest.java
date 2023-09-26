@@ -35,10 +35,10 @@ public class CarParkApiAdapterTest {
 //    void testGetCarParkAvailability() throws CarParkApiException {
 //        CarparkDataRoot carparkDataRoot = carParkApiPort.fetchCarParkAvailability(ZonedDateTime.now());
 //        List<Item> items = carparkDataRoot.getItems();
-//        assertThat(items.size()).isEqualTo(1);
+//        assertThat(items.per_page()).isEqualTo(1);
 //        Item item = items.get(0);
 //        List<CarparkData> carparkDataList = item.getCarparkData();
-//        assertThat(carparkDataList.size()).isGreaterThan(0);
+//        assertThat(carparkDataList.per_page()).isGreaterThan(0);
 //    }
 //
 //    @Test

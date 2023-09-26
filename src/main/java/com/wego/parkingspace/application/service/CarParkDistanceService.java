@@ -23,7 +23,7 @@ public class CarParkDistanceService implements CarParkDistanceUseCase {
     public List<CarPark> getListOfDistance(GetCarParkDistanceCommand command) throws CarParkDistanceException {
         try {
             LatLongCoordinate latLongCoordinate = new LatLongCoordinate(command.latitude(), command.longitude());
-            return loadCarParkPort.loadCarParksByDistance(latLongCoordinate, command.page(), command.size());
+            return loadCarParkPort.loadCarParksByDistance(latLongCoordinate, command.page(), command.per_page());
         } catch (PersistenceAdapterException e) {
             throw new CarParkDistanceException("Cannot get data from database", e);
         }

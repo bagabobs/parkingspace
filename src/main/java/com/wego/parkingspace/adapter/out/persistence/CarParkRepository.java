@@ -9,4 +9,5 @@ public interface CarParkRepository extends ParkingSpaceRepository<String, CarPar
     int saveCarParkEntitiesInBatch(List<CarParkEntities> carParkEntitiesList) throws RepositoryImplementationException;
     int updateCarParkEntitiesInBatch(List<CarParkEntities> carParkEntitiesList) throws RepositoryImplementationException;
     List<CarParkEntities> getCarParksByDistance(double longitude, double latitude, int page, int size) throws RepositoryImplementationException;
+    int getCarParksSize() throws RepositoryImplementationException;
 }
