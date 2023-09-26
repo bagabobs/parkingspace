@@ -5,7 +5,6 @@ import static org.jooq.impl.DSL.*;
 import static org.jooq.impl.DSL.rad;
 
 import com.wego.parkingspace.adapter.out.persistence.generated.tables.pojos.CarParkEntities;
-import com.wego.parkingspace.domain.CarPark;
 import com.wego.parkingspace.exceptions.RepositoryImplementationException;
 import org.jooq.*;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -88,6 +87,11 @@ public class CarParkRepositoryImpl implements CarParkRepository {
                 .stream()
                 .map(record -> new CarParkEntities(record.value2(), record.value3(), record.value5(), record.value4(),
                         record.value6(), record.value7())).toList();
+    }
+
+    @Override
+    public int getCarParksSize() throws RepositoryImplementationException {
+        return context.select(count()).from(CAR_PARK_ENTITIES).fetchOneInto(Integer.class);
     }
 
     @Override

@@ -45,5 +45,5 @@ docker compose -f docker-compose.yml up
 6. Wait for the application to populate the data
 7. You can hit the API using
 ```
-curl -i "http://www.localhost:8080/get_car_parks?latitude=1.3411134805883342&longitude=103.98265048254667&page=1&size=1"
+curl -i "http://www.localhost:8080/get_car_parks?latitude=1.3411134805883342&longitude=103.98265048254667&page=1&per_page=1"
 ```

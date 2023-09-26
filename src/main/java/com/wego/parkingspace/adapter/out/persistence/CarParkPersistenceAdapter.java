@@ -52,12 +52,22 @@ public class CarParkPersistenceAdapter implements SaveCarParkPort, LoadCarParkPo
             return carParkRepository
                     .getCarParksByDistance(latLongCoordinate.longitude(), latLongCoordinate.latitude(), page, size)
                     .stream()
+                    .filter(carParkEntities -> carParkEntities.getAvailableLots() > 0)
                     .map(carParkEntities -> new CarPark(carParkEntities.getCarParkNum(), carParkEntities.getAddress(),
                             carParkEntities.getLatitude(), carParkEntities.getLongitude(),
                             carParkEntities.getTotalLots(), carParkEntities.getAvailableLots()))
                     .toList();
         } catch (RepositoryImplementationException e) {
             throw new PersistenceAdapterException("Error when retrieve data from database", e);
+        }
+    }
+
+    @Override
+    public int loadCarParksSize() throws PersistenceAdapterException {
+        try {
+            return carParkRepository.getCarParksSize();
+        } catch (RepositoryImplementationException e) {
+            throw new PersistenceAdapterException("Error when retrieve car parks data per_page", e);
         }
     }
 }

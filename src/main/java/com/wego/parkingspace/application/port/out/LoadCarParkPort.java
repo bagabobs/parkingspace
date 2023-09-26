@@ -9,4 +9,6 @@ import java.util.List;
 public interface LoadCarParkPort {
     List<CarPark> loadCarParksByDistance(LatLongCoordinate latLongCoordinate, int page, int size)
             throws PersistenceAdapterException;
+
+    int loadCarParksSize() throws PersistenceAdapterException;
 }

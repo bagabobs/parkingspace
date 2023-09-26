@@ -7,10 +7,7 @@ import com.wego.parkingspace.domain.CarPark;
 import com.wego.parkingspace.exceptions.CarParkDistanceException;
 import com.wego.parkingspace.exceptions.PopulateException;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,13 @@ public class CarParkController {
     @GetMapping("/get_car_parks")
     public ResponseEntity<List<CarPark>> getCarParks(GetCarParkDistanceCommand command) {
         try {
+            if (command.longitude() == 0.0) {
+               throw new IllegalArgumentException("Latitude must not empty");
+            }
+
+            if(command.latitude() == 0.0) {
+                throw new IllegalArgumentException("Longitude must not empty");
+            }
             List<CarPark> carParks = carParkDistanceUseCase.getListOfDistance(command);
             return ResponseEntity.ok().body(carParks);
         } catch (CarParkDistanceException e) {

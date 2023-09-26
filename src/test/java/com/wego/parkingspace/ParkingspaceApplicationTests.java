@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
@@ -25,10 +26,19 @@ class ParkingspaceApplicationTests {
 
 	@Test
 	void contextLoads() throws Exception {
+		String content = """
+    			{
+    				"latitude": 103.98265048254667,
+    				"longitude": 1.3411134805883342,
+    				"per_page": 1,
+    				"page": 1
+    			}
+				""";
 		mvc.perform(get("/get_car_parks").param("longitude", "103.98265048254667")
 						.param("latitude", "1.3411134805883342")
-						.param("size", "1")
-						.param("page", "1"))
+						.param("per_page", "1")
+						.param("page", "1")
+						.contentType(MediaType.APPLICATION_JSON).content(content))
 				.andDo(MockMvcResultHandlers.print())
 				.andExpect(status().isOk())
                 .andExpect(jsonPath("$[*].address", Matchers.contains("BLK 155/162 SIMEI ROAD")))
